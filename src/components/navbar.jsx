@@ -27,28 +27,14 @@ export default function Navbar() {
 
       <header className="bg-white shadow-md z-50 sticky top-0">
         <nav className="flex justify-between items-center px-4 py-3 border-b">
-          <Link to="/" className="flex items-center gap-4">
-            <div className="flex flex-col text-blue-900">
-              <h3 className="text-lg font-bold leading-none mb-0">
-                Rotary Club
-              </h3>
-              <h3 className="text-lg leading-none mt-[-2px]">
-                of Pune Professionals
-              </h3>
-            </div>
+          <Link to="/" className="flex items-center h-[60px] px-0">
+  <img
+    src="/images/Rcpp.png"
+    alt="Rotary Pune Logo"
+    className="h-18 ml-0 object-contain "
+  />
+</Link>
 
-            <img
-              src="/images/rotery-pune.png"
-              alt="Rotary Pune Logo"
-              className="h-12"
-            />
-            <div className="w-px h-10 bg-gray-300 mx-0.5" />
-            <img
-              src="/images/rotary-international.svg"
-              alt="Rotary Logo"
-              className="h-12"
-            />
-          </Link>
 
           <div className="md:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)} className="text-xl">
@@ -78,7 +64,7 @@ export default function Navbar() {
         <div
           className={`${
             menuOpen ? "flex flex-col" : "hidden"
-          } md:flex md:flex-row justify-center gap-6 bg-gray-100 text-sm py-4 px-4 md:px-0`}
+          } md:flex md:flex-row justify-center gap-6 bg-white text-sm py-4 px-4 md:px-0`}
         >
           <Link
             to="/"
