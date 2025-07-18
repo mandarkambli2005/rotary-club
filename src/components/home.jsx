@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const navigate = useNavigate();
-
 
   const newsFeatures = [
     {
@@ -64,7 +60,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section with Auto-Playing Video */}
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-screen bg-black overflow-hidden max-w-[100vw] max-h-[100vh]">
         {!isVideoLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 flex items-center justify-center">
             <div className="text-white text-center">
@@ -81,16 +77,13 @@ export default function Home() {
           playsInline
           preload="auto"
           onLoadedData={handleVideoLoad}
-          className="absolute top-0 left-0 w-full h-full object-contain bg-black"
+          className="absolute top-0 left-0 w-full h-full object-cover md:aspect-[16/9] max-md:aspect-[9/16] max-md:orientation-landscape:aspect-[16/9]"
         >
-          {/* <source src="/home-video.mp4" type="video/mp4" /> */}
           <source src="/home.mp4" type="video/mp4" />
-          {/* <source src="/2025.mov" type="video/quicktime" /> */}
           Your browser does not support the video tag.
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20"></div>
-
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
           <div className="max-w-4xl mx-auto transform animate-fade-in">
@@ -103,12 +96,11 @@ export default function Home() {
               and address community needs.
             </p>
             <button
-  onClick={() => navigate("/get-involved")}
-  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
->
-  TAKE ACTION WITH US
-</button>
-
+              onClick={() => navigate("/get-involved")}
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
+              TAKE ACTION WITH US
+            </button>
           </div>
         </div>
 
@@ -135,58 +127,57 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 to-purple-50/30"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-8">
           <div className="grid md:grid-cols-3 gap-8">
-  {/* Card 1 */}
-  <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-    <div className="text-center">
-      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
-        <img
-          src="/images/earth.png"
-          alt="Earth"
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <h2 className="text-2xl font-bold mb-3">WE CONNECT PEOPLE</h2>
-      <p className="text-lg opacity-90">
-        More than 1.2 million members worldwide
-      </p>
-    </div>
-  </div>
+            {/* Card 1 */}
+            <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
+                  <img
+                    src="/images/earth.png"
+                    alt="Earth"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h2 className="text-2xl font-bold mb-3">WE CONNECT PEOPLE</h2>
+                <p className="text-lg opacity-90">
+                  More than 1.2 million members worldwide
+                </p>
+              </div>
+            </div>
 
-  {/* Card 2 */}
-  <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-    <div className="text-center">
-      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
-        <img
-          src="/images/community.png"
-          alt="Community"
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <h2 className="text-2xl font-bold mb-3">WE TRANSFORM COMMUNITIES</h2>
-      <p className="text-lg opacity-90">
-        Approximately 47 million volunteer hours each year
-      </p>
-    </div>
-  </div>
+            {/* Card 2 */}
+            <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
+                  <img
+                    src="/images/community.png"
+                    alt="Community"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h2 className="text-2xl font-bold mb-3">WE TRANSFORM COMMUNITIES</h2>
+                <p className="text-lg opacity-90">
+                  Approximately 47 million volunteer hours each year
+                </p>
+              </div>
+            </div>
 
-  {/* Card 3 */}
-  <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-    <div className="text-center">
-      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
-        <img
-          src="/images/funds.png"
-          alt="Funds"
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <h2 className="text-2xl font-bold mb-3">WE FUND SUSTAINABLE PROJECTS</h2>
-      <p className="text-lg opacity-90">
-        $291 million awarded for global service initiatives in 2023-24
-      </p>
-    </div>
-  </div>
-</div>
-
+            {/* Card 3 */}
+            <div className="group bg-gradient-to-br from-blue-300 to-blue-500 text-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 p-2">
+                  <img
+                    src="/images/funds.png"
+                    alt="Funds"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h2 className="text-2xl font-bold mb-3">WE FUND SUSTAINABLE PROJECTS</h2>
+                <p className="text-lg opacity-90">
+                  $291 million awarded for global service initiatives in 2023-24
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -293,9 +284,10 @@ export default function Home() {
                 communities. Join us, so that we can make an even bigger impact
                 together.
               </p>
-              <button 
-              onClick={() => navigate("/get-involved")}
-              className="bg-white text-blue-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg">
+              <button
+                onClick={() => navigate("/get-involved")}
+                className="bg-white text-blue-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
+              >
                 GET INVOLVED
               </button>
             </div>
@@ -343,14 +335,7 @@ export default function Home() {
         .animate-fade-in {
           animation: fade-in 1s ease-out;
         }
-      `}
-        </style>
-       
- 
+      `}</style>
     </div>
-  
-  
   );
-  
 }
- 
