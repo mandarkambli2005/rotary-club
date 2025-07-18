@@ -75,9 +75,7 @@ export default function GalleryIndex() {
           </Link>
         ))}
       </div>
-      <footer className="text-center mt-12 text-sm text-gray-500">
-        © 2025 Rotary Club of Pune Professionals. All rights reserved.
-      </footer>
+      
     </div>
   );
 }
